@@ -1,0 +1,21 @@
+@import "../utils/utils.scss";
+
+.checkbox-label {
+	width: rem(36);
+	height: rem(36);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: rem(999);
+	padding: rem(8);
+	border: 1px solid black;
+	position: relative;
+}
+.checkbox-input {
+	display: none;
+
+	&:checked ~ .checkbox-label {
+		background-color: black;
+		color: white;
+	}
+}

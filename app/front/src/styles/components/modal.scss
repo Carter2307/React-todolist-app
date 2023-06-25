@@ -1,0 +1,105 @@
+@import "../utils/utils.scss";
+
+.modal {
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(255, 255, 255, 0.08);
+	backdrop-filter: blur(8px);
+	z-index: 3;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal[data-modal-visible="false"] {
+	display: none;
+}
+
+.modal-container {
+	border-radius: rem(16);
+	box-shadow: 0px 8px 48px rgba(0, 0, 0, 0.2);
+	max-width: rem(320);
+	width: 100%;
+	background-color: white;
+	z-index: 2;
+}
+
+.modal {
+	&-header {
+		padding: 1rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+	}
+
+	&-header-title {
+		font-size: 1rem;
+		font-weight: 500;
+	}
+
+	&-content {
+		width: 100%;
+		display: grid;
+		gap: rem(14);
+	}
+
+	&-form {
+	}
+	&-form-content {
+		padding: 1rem;
+	}
+
+	&-actions {
+		display: inline-flex;
+		padding: rem(16);
+		width: 100%;
+		gap: rem(8);
+
+		button {
+			flex-grow: 2;
+		}
+	}
+}
+.ri {
+	&-close-line {
+	}
+}
+
+.modal-form-content {
+	display: grid;
+	gap: rem(16);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.modal-form-group {
+	display: grid;
+	gap: rem(8);
+
+	label {
+		font-size: rem(14);
+		color: rgba(0, 0, 0, 0.6);
+		font-weight: 500;
+	}
+
+	input {
+		border: none;
+		padding: rem(14) rem(16);
+		border-radius: rem(14);
+		background-color: rgba(0, 0, 0, 0.05);
+		outline: none;
+		border: 3px solid white;
+
+		&::placeholder {
+			color: rgba(0, 0, 0, 0.2);
+		}
+
+		&:focus {
+			box-shadow: 0px 0px 0px 3px black;
+		}
+	}
+}

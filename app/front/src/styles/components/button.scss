@@ -1,0 +1,46 @@
+@import "../utils/utils.scss";
+
+.button {
+	border: none;
+	padding: rem(12) rem(18);
+	border-radius: rem(14);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 600;
+
+	i {
+		margin-right: rem(8);
+		font-size: rem(18);
+	}
+}
+
+.button-primary {
+	border: 2px solid white;
+	background-color: black;
+	color: white;
+}
+
+.button-secondary {
+	background-color: white;
+	color: black;
+	border: 2px solid black;
+}
+
+.button-danger {
+	background-color: rgb(233, 1, 1);
+	color: white;
+}
+
+.button-icon {
+	border: none;
+	background-color: rgba($color: #000000, $alpha: 0.05);
+	border-radius: rem(8);
+	padding: rem(4);
+	width: rem(32);
+	height: rem(32);
+	font-size: rem(18);
+	cursor: pointer;
+	color: rgba($color: #000000, $alpha: 0.4);
+}
