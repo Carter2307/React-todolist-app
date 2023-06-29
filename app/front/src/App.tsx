@@ -1,5 +1,5 @@
 import { Header, Modal, Task, TaskList } from "./components";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import "./styles/main.scss";
 
 export default function App() {
@@ -9,8 +9,8 @@ export default function App() {
 
 	//Callback
 	function addTask(task: Task) {
-		setTasks((previousState) => {
-			return [...previousState, task] as React.SetStateAction<Task[]>;
+		setTasks((previousState: Task[]) => {
+			return [...previousState, task];
 		});
 
 		setShow(false);

@@ -1,5 +1,5 @@
 import { Button } from "./button";
-import { FormEvent, FormEventHandler, MouseEventHandler, useState } from "react";
+import { FormEvent, MouseEventHandler, useState } from "react";
 import "../styles/components/modal.scss";
 
 export function Modal(props: { show: boolean; onClose: MouseEventHandler<HTMLButtonElement>; onSubmit: CallableFunction }) {
