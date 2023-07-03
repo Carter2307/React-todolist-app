@@ -1,2 +1,2 @@
-type Task = { id: string; label: string; description: string; checked: boolean };
+type Task = { id: string; label: string; description: string; checked: string };
 type Tasks = Task[];

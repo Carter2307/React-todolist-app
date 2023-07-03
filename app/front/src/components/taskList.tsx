@@ -11,7 +11,7 @@ export function TaskList(props: { tasks: Tasks; toggleTask: CallableFunction; de
 							id={task.id}
 							label={task.label}
 							description={task.description}
-							checked={task.checked}
+							checked={task.checked == "false" ? false : true}
 							onToggle={props.toggleTask}
 							onDelete={() => props.deleteTask(task.id)}
 						></Task>

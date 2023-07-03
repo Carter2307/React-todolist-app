@@ -1,19 +1,31 @@
+import React from "react";
 import { Button } from "./button";
 import { FormEvent, MouseEventHandler, useState } from "react";
 import "../styles/components/modal.scss";
 
 export function Modal(props: { show: boolean; onClose: MouseEventHandler<HTMLButtonElement>; onSubmit: CallableFunction }) {
-	const [label, setLabel] = useState("");
-	const [description, setDesc] = useState("");
+	const [values, setValues] = useState({
+		label: "",
+		description: "",
+	});
+
+	const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e): void => {
+		const name = e.target.name;
+		setValues((oldValue) => {
+			return { ...oldValue, [name]: e.target.value };
+		});
+	};
 
 	function handleSubmit(e: FormEvent) {
 		e.preventDefault();
-		if (label === "" || description === "") return;
+		if (values.label === "" || values.description === "") return;
 
-		props.onSubmit({ id: crypto.randomUUID(), label, description, checked: false });
+		props.onSubmit({ id: crypto.randomUUID(), label: values.label, description: values.description, checked: false });
 
-		setLabel("");
-		setDesc("");
+		setValues({
+			label: "",
+			description: "",
+		});
 	}
 
 	return (
@@ -32,22 +44,22 @@ export function Modal(props: { show: boolean; onClose: MouseEventHandler<HTMLBut
 								<label htmlFor="task-label">Task label</label>
 								<input
 									type="text"
-									name="task-label"
+									name="label"
 									id="task-label"
-									value={label}
+									value={values.label}
 									placeholder="Task label"
-									onChange={(e) => setLabel(e.target.value)}
+									onChange={handleChange}
 								></input>
 							</div>
 							<div className="modal-form-group">
 								<label htmlFor="task-desc">Task description</label>
 								<input
 									type="text"
-									name="task-description"
+									name="description"
 									id="task-desc"
-									value={description}
+									value={values.description}
 									placeholder="Describe you task"
-									onChange={(e) => setDesc(e.target.value)}
+									onChange={handleChange}
 								></input>
 							</div>
 						</div>
@@ -58,6 +70,7 @@ export function Modal(props: { show: boolean; onClose: MouseEventHandler<HTMLBut
 					</form>
 				</div>
 			</div>
+			{JSON.stringify(values)}
 		</div>
 	);
 }
